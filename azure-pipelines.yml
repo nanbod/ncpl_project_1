@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: "Hosted Agent"
+  name: Default
 
 steps:
 - task: ArchiveFiles@2
