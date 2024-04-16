@@ -10,7 +10,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-              sh "cp -f * /var/www/html"
+                    sshagent(['ID']) {
+                                sh "cp -f * /var/www/html"
+                    }
             }
         }
     }
