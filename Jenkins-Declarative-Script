@@ -11,7 +11,7 @@ pipeline {
         stage('Deploy') {
             steps {
                     sshagent(['ID']) {
-                                sh "cp -f * azureuser@51.8.114.49:/var/www/html"
+                                sh "cp -f * azureuser@10.1.0.5:/var/www/html/"
                     }
             }
         }
