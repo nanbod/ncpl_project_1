@@ -8,9 +8,11 @@ pipeline {
                git branch: 'main', url: 'https://github.com/nanbod/ncpl_project_1.git'
             }
         }
-        stage('Deploy') {
+        stage('Build Image') {
             steps {
-                    echo 'Hello World'
+                    img = 'httpd:2.4-alpine'
+                    docker.image("$(img)").run('-d -p 80:80')
+                   // echo 'Hello World'
                     //sshagent(['ID']) {
                     //            sh "scp -o StrictHostKeyChecking=no * azureuser@10.1.0.5:/var/www/html/"
                     //}
