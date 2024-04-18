@@ -10,12 +10,11 @@ pipeline {
         }
         stage('Build Image') {
             steps {
-                    img = 'httpd:2.4-alpine'
-                    docker.image("${img}").run('-d -p 80:80')
-                   // echo 'Hello World'
-                    //sshagent(['ID']) {
-                    //            sh "scp -o StrictHostKeyChecking=no * azureuser@10.1.0.5:/var/www/html/"
-                    //}
+                    script {
+        
+                                img = 'httpd:2.4-alpine'
+                                docker.image("${img}").run('-d -p 80:80')
+                      }
             }
         }
     }
