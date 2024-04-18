@@ -10,6 +10,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                    echo 'Hello World'
                     //sshagent(['ID']) {
                     //            sh "scp -o StrictHostKeyChecking=no * azureuser@10.1.0.5:/var/www/html/"
                     //}
