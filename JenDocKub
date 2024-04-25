@@ -10,7 +10,7 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
+        stage('Get Repo') {
             steps {
                // echo 'Hello World'
                git branch: 'main', url: 'https://github.com/nanbod/ncpl_project_1.git'
@@ -36,8 +36,12 @@ pipeline {
          stage('Deploy') {
             steps {
                     script {
-                                dockerImage.run("-p 80:80")
-                            
+                               // dockerImage.run("-p 80:80")
+                                kubernetesDeploy(
+                                configs: 'k8sdeployment.yaml',
+                                kubeconfigId: 'kubecred',
+                                enableConfigSubstitution: false
+                                )
                       }
             }
         }
