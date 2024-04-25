@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ncplproject1
+  labels:
+    app: ncplproject1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ncplproject1
+  template:
+    metadata:
+      labels:
+        app: ncplproject1
+    spec:
+      containers:
+      - name: ncplproject1
+        image: nanbodke/ncplproject1:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ncplproject1
+spec: 
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector: 
+    app: ncplproject1
