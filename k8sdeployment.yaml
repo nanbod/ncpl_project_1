@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ncplproject1
-        image: nanbodke/ncplproject1
+        image: nanbodke/ncplproject1:latest
         ports:
         - containerPort: 80
 ---
