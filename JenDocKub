@@ -36,7 +36,7 @@ pipeline {
          stage('Deploy') {
             steps {
                     script {
-                               // dockerImage.run("-p 80:80")
+                               dockerImage.run("-p 80:80")
                                 kubernetesDeploy(
                                 configs: 'k8sdeployment.yaml',
                                 kubeconfigId: 'kubecred',
