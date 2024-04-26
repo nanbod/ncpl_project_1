@@ -39,8 +39,7 @@ pipeline {
                                // dockerImage.run("-p 80:80")
                                 kubernetesDeploy(
                                 configs: 'k8sdeployment.yaml',
-                                kubeconfigId: 'kubecred',
-                                enableConfigSubstitution: false
+                                kubeconfigId: 'kubecred'
                                 )
                       }
             }
